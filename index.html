@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio - Analista de Dados</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f172a;
+    color: #fff;
+}
+
+header {
+    background: #1e293b;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #38bdf8;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+section {
+    padding: 50px;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+canvas {
+    background: white;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Seu Nome</h1>
+    <p>Analista de Dados</p>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#graficos">Gráficos</a>
+        <a href="#ods">ODS</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<section id="sobre">
+    <h2>O que faz um Analista de Dados?</h2>
+    <p>
+        Um analista de dados coleta, organiza e interpreta dados para gerar insights
+        que ajudam empresas a tomar decisões melhores. Utiliza ferramentas como Excel,
+        SQL, Python e Power BI.
+    </p>
+
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+</section>
+
+<section id="requisitos">
+    <h2>Requisitos da Área</h2>
+    <div class="card">
+        <ul>
+            <li>Excel avançado</li>
+            <li>SQL</li>
+            <li>Python (Pandas)</li>
+            <li>Power BI ou Tableau</li>
+            <li>Raciocínio lógico</li>
+        </ul>
+    </div>
+</section>
+
+<section id="graficos">
+    <h2>Visualização de Dados</h2>
+
+    <div class="card">
+        <h3>Vendas</h3>
+        <canvas id="grafico1"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Crescimento</h3>
+        <canvas id="grafico2"></canvas>
+    </div>
+</section>
+
+<section id="ods">
+    <h2>ODS</h2>
+    <p>
+        O analista de dados contribui para decisões mais sustentáveis,
+        ajudando empresas e governos a melhorar processos e reduzir desperdícios.
+    </p>
+
+    <div class="card">
+        <ul>
+            <li>ODS 4 - Educação</li>
+            <li>ODS 8 - Crescimento Econômico</li>
+            <li>ODS 9 - Inovação</li>
+            <li>ODS 12 - Consumo Responsável</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <div class="card">
+        <p>Email: amarocristyan353@gmail.com</p>
+        <p>Telefone: (21) 96446-9632</p>
+        <button onclick="alert('Mensagem enviada!')">Enviar Mensagem</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 - Portfólio</p>
+</footer>
+
+<script>
+// gráficos
+new Chart(document.getElementById('grafico1'), {
+    type: 'bar',
+    data: {
+        labels: ['Jan','Fev','Mar','Abr','Mai'],
+        datasets: [{
+            label: 'Vendas',
+            data: [100,200,150,300,250]
+        }]
+    }
+});
+
+new Chart(document.getElementById('grafico2'), {
+    type: 'line',
+    data: {
+        labels: ['2022','2023','2024','2025'],
+        datasets: [{
+            label: 'Usuários',
+            data: [100,300,600,900]
+        }]
+    }
+});
+
+// animação
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
